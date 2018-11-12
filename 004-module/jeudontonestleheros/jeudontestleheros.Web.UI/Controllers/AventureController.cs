@@ -10,6 +10,8 @@ namespace jeudontestleheros.Web.UI.Controllers
     {
         public ActionResult Index()
         {
+            this.ViewBag.MonTitre = "Aventures";
+
             return View();
         }
     }
