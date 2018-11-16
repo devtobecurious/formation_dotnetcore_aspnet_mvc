@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    int[] monTableau = new int[] { 1, 2, 3, 4, 5 };
+}
+
+@foreach (var item in monTableau)
+{
+    <h2>
+        @item
+    </h2>
+}
