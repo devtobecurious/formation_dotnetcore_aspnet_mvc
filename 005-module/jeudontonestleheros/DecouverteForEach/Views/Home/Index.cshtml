@@ -1,12 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 
+
     int[] monTableau = new int[] { 1, 2, 3, 4, 5 };
 }
 
-@foreach (var item in monTableau)
-{
-    <h2>
-        @item
-    </h2>
-}
+<div class="row">
+    @foreach (var item in monTableau)
+    {
+
+        <a href="#" class="card  border m-2 text-center" style="width: 7rem;">
+            <div class="card-body">
+                mon contenu
+            </div>
+        </a>
+
+    }
+</div>
+
+

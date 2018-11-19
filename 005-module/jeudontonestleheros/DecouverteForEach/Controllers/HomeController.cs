@@ -12,6 +12,7 @@ namespace DecouverteForEach.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
 
