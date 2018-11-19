@@ -11,6 +11,7 @@ namespace jeudontestleheros.Web.UI.Controllers
         public ActionResult Index()
         {
             this.ViewBag.MonTitre = "Aventures";
+            this.ViewBag.MonTableau = new int[] { 1, 2, 3, 4, 5 };
 
             return View();
         }

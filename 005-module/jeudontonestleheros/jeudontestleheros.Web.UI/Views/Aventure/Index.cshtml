@@ -4,3 +4,15 @@
 
 <h1>@ViewBag.MonTitre</h1>
 
+<div class="row">
+    @foreach (var item in this.ViewBag.MonTableau)
+    {
+
+        <a href="#" class="card  border m-2 text-center" style="width: 7rem;">
+            <div class="card-body">
+                mon contenu
+            </div>
+        </a>
+    }
+</div>
+
