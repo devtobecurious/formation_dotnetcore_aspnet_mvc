@@ -1,9 +1,14 @@
 ﻿@{
-    
+
 }
 
-<h1>@ViewBag.MonTitre</h1>
+<h1 class="text-center">@ViewBag.MonTitre</h1>
 
+<div class="row justify-content-center">
+    <a class="btn btn-primary text-center" style="" asp-controller="Aventure" asp-action="Create">Nouvelle aventure</a>
+</div>
+
+<h2 class="text-center small ">Vos dernières aventures</h2>
 <div class="row">
     @foreach (var item in this.ViewBag.MonTableau)
     {
