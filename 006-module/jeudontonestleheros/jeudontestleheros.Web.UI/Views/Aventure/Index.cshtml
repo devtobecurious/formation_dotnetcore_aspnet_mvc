@@ -1,4 +1,7 @@
-﻿@{
+﻿@using jeudontonestleheros.Core.Data
+@model List<Aventure>
+
+@{
 
 }
 
@@ -10,11 +13,11 @@
 
 <h2 class="text-center small ">Vos dernières aventures</h2>
 <div class="row">
-    @foreach (var item in this.ViewBag.MonTableau)
+    @foreach (var aventure in Model)
     {
         <a href="#" class="card  border m-2 text-center" style="width: 7rem;">
             <div class="card-body">
-                mon contenu
+                @aventure.Titre
             </div>
         </a>
     }
