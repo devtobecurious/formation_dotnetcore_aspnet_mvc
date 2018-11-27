@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace jeudontonestleheros.Core.Data
+namespace jeudontonestleheros.Core.Data.Models
 {
+    [Table("Aventure")]
     public class Aventure
     {
         #region Propriétés

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using jeudontonestleheros.Core.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace jeudontestleheros.Web.UI
 {
@@ -30,6 +32,9 @@ namespace jeudontestleheros.Web.UI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            string connectionString = this.Configuration.GetConnectionString("DefaultContext");
+
+            services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
