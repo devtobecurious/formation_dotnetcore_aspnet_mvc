@@ -9,16 +9,18 @@ namespace jeudontonestleheros.Core.Data
 {
     public class DefaultContext : DbContext
     {
-        public DefaultContext(DbContextOptions options) : base(options)
+        public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
         {
         }
 
-        protected DefaultContext()
-        {
-        }
+        //public DefaultContext()
+        //{
+        //}
 
         #region Properties
-        public DbSet<Aventure> Aventures { get; set; } 
+        public DbSet<Aventure> Aventures { get; set; }
+
+        public DbSet<Paragraphe> Paragraphes { get; set; }
         #endregion
     }
 }

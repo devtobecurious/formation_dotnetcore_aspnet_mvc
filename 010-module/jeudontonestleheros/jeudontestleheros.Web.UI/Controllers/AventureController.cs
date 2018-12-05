@@ -1,4 +1,6 @@
 ﻿using jeudontestleheros.Web.UI.Models;
+using jeudontonestleheros.Core.Data;
+using jeudontonestleheros.Core.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,25 +11,21 @@ namespace jeudontestleheros.Web.UI.Controllers
 {
     public class AventureController : Controller
     {
-        public ActionResult Index()
+        //private readonly DefaultContext _context = null;
+
+        //public AventureController(DefaultContext context)
+        //{
+        //    this._context = context;
+        //}
+
+        public ActionResult Index([FromServices] DefaultContext context)
         {
             this.ViewBag.MonTitre = "Aventures";
 
-            List<Aventure> maList = new List<Aventure>();
+            var query = from item in context.Aventures
+                        select item;
 
-            maList.Add(new Aventure()
-            {
-                Id = 1,
-                Titre = "Ma première aventure"
-            });
-
-            maList.Add(new Aventure()
-            {
-                Id = 2,
-                Titre = "Ma seconde aventure"
-            });
-
-            return View(maList);
+            return View(query.ToList());
         }
     }
 }

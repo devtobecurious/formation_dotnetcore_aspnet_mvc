@@ -25,6 +25,8 @@ namespace jeudontestleheros.Web.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -34,9 +36,7 @@ namespace jeudontestleheros.Web.UI
 
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
 
-            services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

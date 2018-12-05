@@ -1,4 +1,5 @@
-﻿using jeudontonestleheros.Core.Data.Models;
+﻿using jeudontonestleheros.Core.Data;
+using jeudontonestleheros.Core.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,15 @@ namespace jeudontonestleheros.backoffice.Web.UI.Controllers
 {
     public class ParagrapheController : Controller
     {
-        #region A supprimer après entities
-        private List<Paragraphe> _maList = new List<Paragraphe>()
+        #region Champs privés
+        private DefaultContext _context = null;
+        #endregion
+
+        #region Constructeurs
+        public ParagrapheController(DefaultContext context)
         {
-            new Paragraphe() { Id = 1, Numero = 1, Titre = "Titre 1"},
-            new Paragraphe() { Id = 2, Numero = 10, Titre = "Titre 2"},
-            new Paragraphe() { Id = 5, Numero = 14, Titre = "Titre 3"}
-        };
+            this._context = context;
+        }
         #endregion
 
         #region Méthodes publiques
@@ -32,6 +35,9 @@ namespace jeudontonestleheros.backoffice.Web.UI.Controllers
         [HttpPost]
         public ActionResult Create(Paragraphe paragraphe)
         {
+            this._context.Paragraphes.Add(paragraphe);
+            this._context.SaveChanges();
+
             return this.View();
         }
 
@@ -39,9 +45,7 @@ namespace jeudontonestleheros.backoffice.Web.UI.Controllers
         {
             Paragraphe paragraphe = null;
 
-            #region A changer avec l'appel en base de données / entities
-            paragraphe = _maList.First(item => item.Id == id);
-            #endregion
+            paragraphe = this._context.Paragraphes.First(item => item.Id == id);
 
             return this.View(paragraphe);
         }
@@ -49,6 +53,16 @@ namespace jeudontonestleheros.backoffice.Web.UI.Controllers
         [HttpPost]
         public ActionResult Edit(Paragraphe paragraphe)
         {
+            // premier façon d'updater
+            //this._context.Paragraphes.Update(paragraphe);
+
+            //seconde façon d'updater
+            this._context.Attach<Paragraphe>(paragraphe);
+            this._context.Entry(paragraphe).Property(item => item.Titre).IsModified = true;
+
+
+            this._context.SaveChanges();
+
             return this.View(paragraphe);
         }
         #endregion
