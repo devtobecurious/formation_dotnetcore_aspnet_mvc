@@ -31,7 +31,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    
+                    @{ 
+                        var url = Url.Action(action: "Index", controller: "Aventure");
+                    }
+
+                    <li><a href="@url">Mes aventures</a></li>
+                    @*<li>@Html.ActionLink("Mes aventures", actionName: "Index", controllerName: "Aventure")</li>*@
+
+                    @*<li><a asp-area="" asp-controller="Aventure" asp-action="Index">Mes aventures</a></li>*@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>

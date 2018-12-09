@@ -57,6 +57,12 @@ namespace jeudontestleheros.Web.UI
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "aventures",
+                    template: "mes-aventures",
+                    defaults: new { controller = "Aventure", action = "Index"}
+                );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
