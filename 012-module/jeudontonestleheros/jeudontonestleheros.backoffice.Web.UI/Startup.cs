@@ -15,9 +15,21 @@ namespace jeudontonestleheros.backoffice.Web.UI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                                      .SetBasePath(env.ContentRootPath)
+                                      .AddJsonFile("appsettings.json",
+                                                   optional: false,
+                                                   reloadOnChange: true)
+                                      .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -34,6 +46,13 @@ namespace jeudontonestleheros.backoffice.Web.UI
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication()
+                    .AddFacebook(options =>
+                    {
+                        options.AppId = this.Configuration["Api:Facebook:AppId"];
+                        options.AppSecret = this.Configuration["Api:Facebook:AppSecret"];
+                    });
 
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
             services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
@@ -53,6 +72,8 @@ namespace jeudontonestleheros.backoffice.Web.UI
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
