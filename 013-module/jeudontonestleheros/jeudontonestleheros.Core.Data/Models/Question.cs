@@ -21,10 +21,11 @@ namespace jeudontonestleheros.Core.Data.Models
         /// </summary>
         public string Titre { get; set; }
 
+        public int ParagrapheId { get; set; }
+
         /// <summary>
         /// Liste des réponses possibles
         /// </summary>
-        [NotMapped]
         public List<Reponse> MesReponses { get; set; }
         #endregion
     }

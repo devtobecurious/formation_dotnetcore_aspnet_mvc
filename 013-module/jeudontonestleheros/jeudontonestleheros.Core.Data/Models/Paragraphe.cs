@@ -34,7 +34,6 @@ namespace jeudontonestleheros.Core.Data.Models
         /// <summary>
         /// Question du paragraphe
         /// </summary>
-        [NotMapped]
         public Question MaQuestion { get; set; }
         #endregion
     }
