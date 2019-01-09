@@ -19,16 +19,19 @@ namespace jeudontonestleheros.Core.Data.Models
         /// <summary>
         /// Numéro à afficher pour le jeu
         /// </summary>
+        [Range(1, 9999999)]
         public int Numero { get; set; }
 
         /// <summary>
         /// C'est le titre du paragraphe
         /// </summary>
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Titre requis")]
         public string Titre { get; set; }
 
         /// <summary>
         /// Description du paragraphe
         /// </summary>
+        [Required(AllowEmptyStrings =false, ErrorMessage ="Description requise")]
         public string Description { get; set; }
 
         /// <summary>
