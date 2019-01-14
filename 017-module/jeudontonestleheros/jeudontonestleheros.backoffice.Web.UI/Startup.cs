@@ -78,6 +78,13 @@ namespace jeudontonestleheros.backoffice.Web.UI
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "edition-paragraphe",
+                    template: "edition-paragraphe/{id}",
+                    defaults: new { controller="Paragraphe", action="Edit" },
+                    constraints: new { id= @"\d+"}
+                );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
