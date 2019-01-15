@@ -18,6 +18,16 @@ namespace jeudontestleheros.Web.UI.Controllers
         //    this._context = context;
         //}
 
+        public ActionResult Create()
+        {
+            return this.View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return this.View();
+        }
+
         public ActionResult Index([FromServices] DefaultContext context)
         {
 

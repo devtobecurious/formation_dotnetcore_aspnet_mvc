@@ -81,7 +81,7 @@ namespace jeudontonestleheros.backoffice.Web.UI
                     name: "edition-paragraphe",
                     template: "edition-paragraphe/{id}",
                     defaults: new { controller="Paragraphe", action="Edit" },
-                    constraints: new { id= @"\d+"}
+                    constraints: new { id= new Constraints.LogConstraint()}
                 );
 
                 routes.MapRoute(

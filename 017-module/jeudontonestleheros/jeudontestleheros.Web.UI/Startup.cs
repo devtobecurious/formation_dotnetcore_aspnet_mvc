@@ -57,6 +57,19 @@ namespace jeudontestleheros.Web.UI
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "aventure-creation",
+                    template: "demarrer-une-nouvelle-aventure",
+                    defaults: new { controller = "Aventure", action = "Create" }
+                );
+
+                routes.MapRoute(
+                    name: "aventure-edition",
+                    template: "editer-une-aventure/{id}",
+                    defaults: new { controller = "Aventure", action = "Edit" },
+                    constraints: new { id = @"\d+" }
+                );
+
+                routes.MapRoute(
                     name: "aventures",
                     template: "mes-aventures",
                     defaults: new { controller = "Aventure", action = "Index"}
