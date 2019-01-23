@@ -1,0 +1,40 @@
+﻿@model jeudontonestleheros.Core.Data.Models.Question
+
+@{
+    ViewData["Title"] = "Add";
+
+    List<jeudontonestleheros.Core.Data.Models.Paragraphe> list = null;
+
+    list = this.ViewBag.ParagrapheList;
+
+    var lisItems = list.Select(item => new SelectListItem() { Text = item.Titre, Value = item.Id.ToString() }).ToList();
+}
+
+<h2>Add</h2>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="ParagrapheId" asp-items="lisItems"></select>
+                @Html.DropDownList("ParagrapheId", lisItems)
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
