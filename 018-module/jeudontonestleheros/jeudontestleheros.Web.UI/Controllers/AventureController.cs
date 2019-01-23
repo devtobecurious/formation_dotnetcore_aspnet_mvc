@@ -30,7 +30,6 @@ namespace jeudontestleheros.Web.UI.Controllers
 
         public ActionResult Index([FromServices] DefaultContext context)
         {
-
             this.ViewBag.MonTitre = "Aventures";
 
             var query = from item in context.Aventures
