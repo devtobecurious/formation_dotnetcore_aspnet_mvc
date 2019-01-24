@@ -30,6 +30,7 @@ namespace DecouverteSession
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
                 options.Cookie.HttpOnly = true;

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using jeudontestleheros.Web.UI.Models;
+using System.Reflection;
 
 namespace jeudontestleheros.Web.UI.Controllers
 {

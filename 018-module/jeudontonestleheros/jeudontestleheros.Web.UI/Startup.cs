@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using jeudontonestleheros.Core.Data.DataLayers;
 
 namespace jeudontestleheros.Web.UI
 {

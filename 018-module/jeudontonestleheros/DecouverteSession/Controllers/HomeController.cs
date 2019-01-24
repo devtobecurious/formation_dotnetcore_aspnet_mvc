@@ -29,7 +29,7 @@ namespace DecouverteSession.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = this.HttpContext.Session.GetString("Ticks");
+            this.ViewData["Message"] = this.HttpContext.Session.GetString("Ticks");
 
             return View();
         }
