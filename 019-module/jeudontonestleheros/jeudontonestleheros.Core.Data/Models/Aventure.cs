@@ -19,6 +19,7 @@ namespace jeudontonestleheros.Core.Data.Models
         /// <summary>
         /// C'est le titre de chaque aventure
         /// </summary>
+        [Required(AllowEmptyStrings = false, ErrorMessage ="Le titre est requis")]
         public string Titre { get; set; }
         #endregion
     }

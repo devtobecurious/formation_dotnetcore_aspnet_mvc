@@ -35,9 +35,19 @@ namespace jeudontonestleheros.Core.Data.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Indique si c'est le parapgraphe de démarrage
+        /// </summary>
+        public bool EstInitial { get; set; }
+
+        /// <summary>
         /// Question du paragraphe
         /// </summary>
         public Question MaQuestion { get; set; }
+
+        /// <summary>
+        /// Liste des réponses possibles
+        /// </summary>
+        public IEnumerable<Reponse> Reponses { get; set; }
         #endregion
     }
 }

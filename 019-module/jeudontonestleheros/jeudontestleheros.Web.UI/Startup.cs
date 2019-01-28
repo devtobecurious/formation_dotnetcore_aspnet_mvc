@@ -37,6 +37,8 @@ namespace jeudontestleheros.Web.UI
 
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
 
+            services.AddTransient<ParagrapheDataLayer, ParagrapheDataLayer>();
+
             services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
         }
 

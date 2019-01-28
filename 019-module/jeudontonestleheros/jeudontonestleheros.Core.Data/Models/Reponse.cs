@@ -21,7 +21,15 @@ namespace jeudontonestleheros.Core.Data.Models
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Id de la question
+        /// </summary>
         public int QuestionId { get; set; }
+
+        /// <summary>
+        /// Id du paragraphe suivant
+        /// </summary>
+        public int? ParagrapheId { get; set; }
         #endregion
     }
 }

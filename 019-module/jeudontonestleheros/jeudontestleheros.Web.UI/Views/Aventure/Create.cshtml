@@ -1,0 +1,33 @@
+﻿@model jeudontonestleheros.Core.Data.Models.Aventure
+
+@{
+    ViewData["Title"] = "Nouvelle aventure";
+}
+
+<h2>Nouvelle aventure</h2>
+
+<h4>Go !</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="C'est parti !" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste de vos aventures</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
