@@ -1,0 +1,35 @@
+﻿@model jeudontonestleheros.Core.Data.Models.Paragraphe
+
+@{
+    ViewData["Title"] = "C'est parti";
+}
+
+<h2>C'est parti !</h2>
+
+
+<div class="row center">
+    <h1>@Model.Titre</h1>
+    <p>
+        @Model.Description
+    </p>
+</div>
+
+@if (@Model.MaQuestion != null)
+{
+<div class="row center">
+    <p>
+        @Model.MaQuestion.Titre
+    </p>
+
+    @if (Model.MaQuestion.MesReponses != null && Model.MaQuestion.MesReponses.Count > 0)
+    {
+    <ul>
+        @foreach (var proposition in Model.MaQuestion.MesReponses)
+        {
+            <li><a asp-controller="Aventure" asp-action="BeginNewOne" asp-route-id="@proposition.ParagrapheId">- @proposition.Description</a></li>
+        }
+    </ul>
+    }
+</div>
+}
+
