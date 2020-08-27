@@ -15,7 +15,6 @@ namespace jeudontonestleheros.Core.Data
 
         //public DefaultContext()
         //{
-        //}
 
         #region Properties
         public DbSet<Aventure> Aventures { get; set; }

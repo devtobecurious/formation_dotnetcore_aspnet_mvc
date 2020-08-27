@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace jeudontonestleheros.backoffice.Web.UI
 {
@@ -29,7 +30,7 @@ namespace jeudontonestleheros.backoffice.Web.UI
                 builder.AddUserSecrets<Startup>();
             }
 
-            Configuration = builder.Build();
+            this.Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -45,7 +46,10 @@ namespace jeudontonestleheros.backoffice.Web.UI
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            });
 
             services.AddAuthentication()
                     .AddFacebook(options =>

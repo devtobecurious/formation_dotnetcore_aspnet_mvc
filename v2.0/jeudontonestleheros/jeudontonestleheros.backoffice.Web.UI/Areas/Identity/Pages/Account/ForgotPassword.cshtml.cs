@@ -19,8 +19,8 @@ namespace jeudontonestleheros.backoffice.Web.UI.Areas.Identity.Pages.Account
 
         public ForgotPasswordModel(UserManager<IdentityUser> userManager, IEmailSender emailSender)
         {
-            _userManager = userManager;
-            _emailSender = emailSender;
+            this._userManager = userManager;
+            this._emailSender = emailSender;
         }
 
         [BindProperty]
