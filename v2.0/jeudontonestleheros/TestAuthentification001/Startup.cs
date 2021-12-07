@@ -48,8 +48,6 @@ namespace TestAuthentification001
                         option.AppId = this.Configuration["Api:Facebook:AppId"];
                         option.AppSecret = this.Configuration["Api:Facebook:AppSecret"];
                     });
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
